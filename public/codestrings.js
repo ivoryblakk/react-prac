@@ -63,6 +63,7 @@ reactCode.pt2.push(`< MyComponentClass />`);
 To make a React component, you write a JSX element. Instead of naming your JSX element something like h1 or div like you've done before, give it the same name as a component class.
 */
 // Recall the same class in the fucntion
+reactCode.pt1.push("");
 reactCode.pt2.push(`< MyComponentClass />`);
 
 //_____________________________________________________________
