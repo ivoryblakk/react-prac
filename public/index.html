@@ -1,59 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>React App</title>
+  <script src="./codeeditor/ace.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./codeeditor/mode-javascript.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./codeeditor/ext-language_tools.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./codestrings.js" type="text/javascript" charset="utf-8"></script>
 </head>
+
 <body>
-  <div id="root">
+  Example:
+  <div id="container">
+    <div style="margin: auto;" id="root">
 
-  </div >
-
-  <div id ="root2">
-
+    </div>
+    <br/> Code:
+    <div id="editor" style="width:70vw;height:40vh;border:1px solid grey">console.log("success");</div>
+    <div style="margin: auto; display: inline-block" id="prevcontainer"></div>
+    <div style="margin: auto; display: inline-block" id="nextcontainer"></div>
   </div>
-  <div id ="root3">
-  </div>
-
-      <div id ="root4">
-       </div>
-
-       <div id ="root5">
-       </div>
-       <div id ="root6">
-      </div>
-      <div id ="root7">
-      </div>
-      <div id ="root8">
-      </div>
-      <div id ="root9">
-      </div>
-      <div id ="root10">
-      </div>
-      <div id ="root11">
-      </div>
-      <div id ="root12">
-      </div>
-      <div id ="root13">
-      </div>
-      <div id ="root14">
-      </div>
-    </div>
-    <div id ="root15">
-    </div>
-    <div id ="root16">
-    </div>
-    <div id ="root17">
-    </div>
-    <div id ="root18">
-    </div>
-    <div id ="root19">
-    </div>
-    <div id ="root20">
-    </div>
-    <div id ="root21">
-    </div>
+  <script>
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/twilight");
+    var JavaScriptMode = ace.require("ace/mode/javascript").Mode;
+    editor.session.setMode(new JavaScriptMode());
+    ace.require("ace/ext/language_tools");
+    editor.setOptions({
+      enableLiveAutocompletion: true
+    });
+    window.onload = function () {
+      var currentID = -1;
+      setButtons();
+    }
+  </script>
 </body>
+
 </html>
