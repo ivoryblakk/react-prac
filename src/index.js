@@ -438,3 +438,73 @@ class Mutton extends React.Component {
     document.getElementById('root21')
   );
   //_____________________________________________________________
+  // THIS.STATE Setting Initial State
+  //A React component can access dynamic information in two ways: props and state
+ // this.state should be equal to an object
+ //important to note that React components always have to call super in their constructors to be set up properly.
+ class Apps extends React.Component {
+	// constructor method begins here:
+  constructor(props){
+ super(props);
+  this.state = { title: 'Best App' };
+  }
+ 
+render() {
+    return (
+      <h1>
+        {this.state.title}
+      </h1>
+    );
+  }
+}
+
+ReactDOM.render(
+<Apps />,
+document.getElementById('root22'))
+//_____________________________________________________________
+//THIS.STATE Update state with this.setstate
+/*Notice that <Example /> has a state of:
+
+{
+  mood:   'great',
+  hungry: false
+}
+Now, let's say that <Example /> were to call:
+
+this.setState({ hungry: true });
+After that call, here is what <Example />'s state would be:
+
+{
+  mood:   'great',
+  hungry: true
+}
+The mood part of the state remains unaffected!
+*/
+//_____________________________________________________________
+// THIS.STATE Call this.setState from Another Function
+class Mood extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { mood: 'good' };
+    this.toggleMood = this.toggleMood.bind(this);
+  }
+
+
+  toggleMood() {
+    const newMood = this.state.mood == 'good' ? 'bad' : 'good';
+    this.setState({ mood: newMood });
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>I'm feeling {this.state.mood}!</h1>
+        <button onClick={this.toggleMood}>
+          Click Me
+        </button>
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(<Mood />, document.getElementById('root23'));
